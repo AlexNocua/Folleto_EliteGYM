@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutina de Entrenamiento Minimalista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap');
+
+        body {
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-style: normal;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #161616;
+            color: #e0e0e0;
+
+        }
+
+        main {
+
+            position: relative;
+            background-color: #2a2a2a69;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            height: 1050px;
+        }
+
+        .fondo {
+            position: absolute;
+            filter: blur(2);
+            z-index: 0;
+        }
+
+        .content {
+            margin: 20px 30px;
+
+        }
+
+        .card {
+            width: 700px;
+            /*background-color: #333333;*/
+            background-color: #000000ab;
+            border: none;
+            margin-bottom: 15px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            background-color: #ff6600;
+            color: #ffffff;
+            border-bottom: none;
+        }
+
+        .card-header img {
+            width: 35px;
+            height: 35px;
+            margin: 0 12px;
+        }
+
+        .exercise-list {
+            display: flex;
+            flex-direction: column;
+            align-items: first baseline;
+            justify-content: space-evenly;
+        }
+
+        .exercise-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-body {
+            color: #cccccc;
+
+        }
+
+        .num_input {
+            padding: 0;
+            margin: 0 4px;
+            border-radius: 50%;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            z-index: 2;
+            background: #ff5500;
+
+        }
+
+        .form-check-input {
+            margin: 0 4px 0 0;
+            background-color: #4a4a4a;
+            border-color: #5a5a5a;
+        }
+
+        .form-check-input:checked {
+            background-color: #606060;
+            border-color: #707070;
+        }
+
+        .form-control {
+            text-align: center;
+            background-color: #3a3a3a;
+            border-color: #4a4a4a;
+            color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: #888888;
+        }
+
+        .dia {
+            width: 140px;
+            height: 170px;
+            background-color: #e6e6e654;
+            border: 1px solid #404040;
+            border-radius: 4px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .dia h3 {
+            background-color: #404040;
+            color: #ffffff;
+            text-align: center;
+            padding: 5px;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .exercise-icon {
+            display: flex;
+        }
+
+        .informacion_persona {
+            background-color: #333333;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .informacion_persona .borde_nombre {
+            min-width: 100px;
+            width: 100%;
+            color: rgb(255, 72, 0);
+            border-bottom: 3px solid rgb(255, 72, 0);
+            margin-bottom: 12px;
+        }
+
+        .grid-container {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0px;
+            padding: 0;
+        }
+
+        .grid-container .card {
+
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            border: 3px solid #f56f08;
+            overflow: hidden;
+            width: 85px;
+            border-radius: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .num_ejercicio {
+            top: 0;
+            right: 0;
+            border-radius: 50%;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            z-index: 2;
+            background: #ff5500;
+            position: absolute;
+            box-shadow: 1px 1px 1px #525252;
+        }
+
+        .imagen_ejercicio {
+            width: 82px;
+            height: 82px;
+            /* Corregido */
+            margin: 0;
+            padding: 0;
+            border-radius: 10px;
+            filter: opacity(0.9);
+
+            /* Aplica escala de grises completa y baja opacidad */
+        }
+
+        .campo_peso {
+            padding: 0;
+            margin: 0;
+            background: #ffffff88;
+            position: absolute;
+            width: 85px;
+            z-index: 2;
+            color: #252525;
+            bottom: 0;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .footer {
+            z-index: 1;
+            background-color: #2a2a2a85;
+            color: #e0e0e0;
+            padding: 10px 0;
+
+        }
+
+        .footer h5 {
+            color: #ff6600;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .footer p,
+        .footer a {
+            color: #cccccc;
+            text-decoration: none;
+        }
+
+
+        .content_footer {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .footer a:hover {
+            color: #ff6600;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a {
+            color: #cccccc;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600;
+        }
+
+        .logo {
+            max-width: 150px;
+
+        }
+
+        .promo {
+            background-color: #333333b3;
+            border-left: 4px solid #ff6600;
+            padding: 15px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <img class="fondo" src="Imagen de WhatsApp 2024-10-09 a las 11.46.15_c5fb4788.jpg" alt="">
+    <div class="content">
+        <main>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="informacion_persona">
+                        <h3>Rutina de entrenamiento</h3>
+                        <p class="d-flex"><strong>Nombre:</strong></p>
+                        <div class="borde_nombre"></div>
+                        <p class="d-flex"><strong>Edad:</strong></p>
+                        <div class="borde_nombre"></div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+
+                    <div class="d-flex flex-wrap justify-content-between">
+
+                        <div class="dia">
+                            <h3>Lunes</h3>
+                        </div>
+                        <div class="dia">
+                            <h3>Martes</h3>
+                        </div>
+                        <div class="dia">
+                            <h3>Miércoles</h3>
+                        </div>
+                        <div class="dia">
+                            <h3>Jueves</h3>
+                        </div>
+                        <div class="dia">
+                            <h3>Viernes</h3>
+                        </div>
+                        <div class="dia">
+                            <h3>Sábado</h3>
+                        </div>
+                        <div class="dia">
+                            <h3>Domingo</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <!-- Aquí van las tarjetas de ejercicios (Pecho, Espalda, etc.) -->
+                <!-- Ejemplo para la tarjeta de Pecho -->
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <img src="icons/pecho.png" alt="">
+                            <h3 class="mb-0">Pecho</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="exercise-list w-50">
+                                    <div class="exercise-item">
+                                        <p class="num_input">1</p>
+                                        <input class="form-check-input" type="checkbox" id="press-banca">
+                                        <label class="form-check-label" for="press-banca">Press de banca</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">2</p>
+                                        <input class="form-check-input" type="checkbox" id="crossover-cables">
+                                        <label class="form-check-label" for="crossover-cables">Crossover de
+                                            cables</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">3</p>
+                                        <input class="form-check-input" type="checkbox" id="press-mancuernas">
+                                        <label class="form-check-label" for="press-mancuernas">Press con
+                                            mancuernas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">4</p>
+                                        <input class="form-check-input" type="checkbox" id="fondos-paralelas">
+                                        <label class="form-check-label" for="fondos-paralelas">Fondos en
+                                            paralelas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">5</p>
+                                        <input class="form-check-input" type="checkbox" id="aperturas-mancuernas">
+                                        <label class="form-check-label" for="aperturas-mancuernas">Aperturas con
+                                            mancuernas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">6</p>
+                                        <input class="form-check-input" type="checkbox" id="press-inclinado">
+                                        <label class="form-check-label" for="press-inclinado">Press
+                                            inclinado</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">7</p>
+                                        <input class="form-check-input" type="checkbox" id="press-maquina">
+                                        <label class="form-check-label" for="press-maquina">Press en máquina</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">8</p>
+                                        <input class="form-check-input" type="checkbox" id="press-declinado">
+                                        <label class="form-check-label" for="press-declinado">Press
+                                            declinado</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">9</p>
+                                        <input class="form-check-input" type="checkbox" id="pullover">
+                                        <label class="form-check-label" for="pullover">Pullover con
+                                            mancuerna</label>
+                                    </div>
+                                </div>
+
+                                <div class="grid-container w-50">
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">1</p>
+                                        <img class="imagen_ejercicio" src="Pecho/bench-press-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">2</p>
+                                        <img class="imagen_ejercicio" src="Pecho/cable-fly-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">3</p>
+                                        <img class="imagen_ejercicio" src="Pecho/dumbbell-bench-press-800.jpg" alt="">
+                                    </div>
+
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">4</p>
+                                        <img class="imagen_ejercicio" src="Pecho/dips-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">5</p>
+                                        <img class="imagen_ejercicio" src="Pecho/dumbbell-fly-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">6</p>
+                                        <img class="imagen_ejercicio" src="Pecho/incline-bench-press-800.jpg" alt="">
+                                    </div>
+
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">7</p>
+                                        <img class="imagen_ejercicio" src="Pecho/machine-chest-fly-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">8</p>
+                                        <img class="imagen_ejercicio" src="Pecho/decline-bench-press-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">9</p>
+                                        <img class="imagen_ejercicio" src="Pecho/dumbbell-pullover-800.jpg" alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <img src="icons/espalda.png" alt="">
+                            <h3 class="mb-0">Espalda</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="exercise-list w-50">
+                                    <div class="exercise-item">
+                                        <p class="num_input">1</p>
+                                        <input class="form-check-input" type="checkbox" id="press-banca">
+                                        <label class="form-check-label" for="press-banca">Dominadas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">2</p>
+                                        <input class="form-check-input" type="checkbox" id="crossover-cables">
+                                        <label class="form-check-label" for="crossover-cables">Remo con
+                                            barra</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">3</p>
+                                        <input class="form-check-input" type="checkbox" id="press-mancuernas">
+                                        <label class="form-check-label" for="press-mancuernas">Remo con
+                                            mancuernas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">4</p>
+                                        <input class="form-check-input" type="checkbox" id="fondos-paralelas">
+                                        <label class="form-check-label" for="fondos-paralelas">Encogimiento de
+                                            hombros</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">5</p>
+                                        <input class="form-check-input" type="checkbox" id="aperturas-mancuernas">
+                                        <label class="form-check-label" for="aperturas-mancuernas">Jalón al pecho
+                                            con
+                                            barra</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">6</p>
+                                        <input class="form-check-input" type="checkbox" id="press-inclinado">
+                                        <label class="form-check-label" for="press-inclinado">Pec fly
+                                            invertido</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">7</p>
+                                        <input class="form-check-input" type="checkbox" id="press-maquina">
+                                        <label class="form-check-label" for="press-maquina">Remo en máquina</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">8</p>
+                                        <input class="form-check-input" type="checkbox" id="press-declinado">
+                                        <label class="form-check-label" for="press-declinado">Pull over con
+                                            barra</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">9</p>
+                                        <input class="form-check-input" type="checkbox" id="pullover">
+                                        <label class="form-check-label" for="pullover">Jalón al pecho con agarre
+                                            invertido</label>
+                                    </div>
+                                </div>
+
+                                <div class="grid-container w-50">
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">1</p>
+                                        <img class="imagen_ejercicio" src="Espalda/pull-ups-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">2</p>
+                                        <img class="imagen_ejercicio" src="Espalda/bent-over-row-800.jpg">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">3</p>
+                                        <img class="imagen_ejercicio" src="Espalda/dumbbell-row-800.jpg" alt="">
+                                    </div>
+
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">4</p>
+                                        <img class="imagen_ejercicio" src="Espalda/dumbbell-shrug-800.jpg">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">5</p>
+                                        <img class="imagen_ejercicio" src="Espalda/lat-pulldown-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">6</p>
+                                        <img class="imagen_ejercicio" src="Espalda/machine-reverse-fly-800.jpg" alt="">
+                                    </div>
+
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">7</p>
+                                        <img class="imagen_ejercicio" src="Espalda/machine-row-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">8</p>
+                                        <img class="imagen_ejercicio" src="Espalda/barbell-pullover-800.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">9</p>
+                                        <img class="imagen_ejercicio" src="Espalda/reverse-grip-lat-pulldown-800.jpg"
+                                            alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <img src="icons/piernas.png" alt="">
+                            <h3 class="mb-0">Piernas</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="exercise-list w-50">
+                                    <div class="exercise-item">
+                                        <p class="num_input">1</p>
+                                        <input class="form-check-input" type="checkbox" id="sentadillas">
+                                        <label class="form-check-label" for="sentadillas">Sentadillas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">2</p>
+                                        <input class="form-check-input" type="checkbox" id="prensa">
+                                        <label class="form-check-label" for="prensa">Prensa de pierna</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">3</p>
+                                        <input class="form-check-input" type="checkbox" id="zancadas">
+                                        <label class="form-check-label" for="zancadas">Zancadas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">4</p>
+                                        <input class="form-check-input" type="checkbox" id="extension-cuadriceps">
+                                        <label class="form-check-label" for="extension-cuadriceps">Extensión de
+                                            cuádriceps</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">5</p>
+                                        <input class="form-check-input" type="checkbox" id="curl-femoral">
+                                        <label class="form-check-label" for="curl-femoral">Curl femoral</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">6</p>
+                                        <input class="form-check-input" type="checkbox" id="peso-muerto-piernas">
+                                        <label class="form-check-label" for="peso-muerto-piernas">Peso muerto
+                                            piernas
+                                            rígidas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">7</p>
+                                        <input class="form-check-input" type="checkbox" id="sentadillas-bulgaras">
+                                        <label class="form-check-label" for="sentadillas-bulgaras">Sentadillas
+                                            búlgaras</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">8</p>
+                                        <input class="form-check-input" type="checkbox" id="gemelos-maquina">
+                                        <label class="form-check-label" for="gemelos-maquina">Elevaciones de gemelos
+                                            en
+                                            máquina</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">9</p>
+                                        <input class="form-check-input" type="checkbox" id="press-pierna">
+                                        <label class="form-check-label" for="press-pierna">Puente de glúteo</label>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="grid-container w-50">
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">1</p>
+                                        <img class="imagen_ejercicio" src="piernas/sentadillas800.jpg"
+                                            alt="Sentadillas">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">2</p>
+                                        <img class="imagen_ejercicio" src="piernas/prensa.jpg" alt="Prensa de piernas">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">3</p>
+                                        <img class="imagen_ejercicio" src="piernas/zancadas.jpg" alt="Zancadas">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">4</p>
+                                        <img class="imagen_ejercicio" src="piernas/extencion de cuadriceps.jpg"
+                                            alt="Extensión de cuádriceps">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">5</p>
+                                        <img class="imagen_ejercicio" src="piernas/curlfemoral.avif" alt="Curl femoral">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">6</p>
+                                        <img class="imagen_ejercicio" src="piernas/pesomuertorigido.jpg"
+                                            alt="Peso muerto piernass rígidas">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">7</p>
+                                        <img class="imagen_ejercicio" src="piernas/sentadillabulgara.jpg"
+                                            alt="Sentadillas búlgaras">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">8</p>
+                                        <img class="imagen_ejercicio" src="piernas/elevaciones de gemelo.jpg"
+                                            alt="Elevaciones de gemelos en máquina">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">9</p>
+                                        <img class="imagen_ejercicio" src="piernas/puentede_gluteo.jpg"
+                                            alt="Puente de glúteo">
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <img src="icons/hombros.png" alt="">
+                            <h3 class="mb-0">Hombros</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="exercise-list w-50">
+                                    <div class="exercise-item">
+                                        <p class="num_input">1</p>
+                                        <input class="form-check-input" type="checkbox" id="press-hombros-mancuernas">
+                                        <label class="form-check-label" for="press-hombros-mancuernas">Press militar
+                                            con
+                                            mancuernas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">2</p>
+                                        <input class="form-check-input" type="checkbox" id="elevaciones-laterales">
+                                        <label class="form-check-label" for="elevaciones-laterales">Elevaciones
+                                            laterales</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">3</p>
+                                        <input class="form-check-input" type="checkbox" id="elevaciones-frontales">
+                                        <label class="form-check-label" for="elevaciones-frontales">Elevaciones
+                                            frontales</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">4</p>
+                                        <input class="form-check-input" type="checkbox"
+                                            id="encogimiento-hombros-mancuernas">
+                                        <label class="form-check-label"
+                                            for="encogimiento-hombros-mancuernas">Encogimiento de hombros con
+                                            mancuernas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">5</p>
+                                        <input class="form-check-input" type="checkbox" id="press-maquina">
+                                        <label class="form-check-label" for="press-maquina">Press en máquina</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">6</p>
+                                        <input class="form-check-input" type="checkbox" id="elevaciones-posteriores">
+                                        <label class="form-check-label" for="elevaciones-posteriores">Elevaciones
+                                            posteriores con mancuernas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">7</p>
+                                        <input class="form-check-input" type="checkbox" id="press-arnold">
+                                        <label class="form-check-label" for="press-arnold">Press Arnold</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">8</p>
+                                        <input class="form-check-input" type="checkbox" id="face-pull">
+                                        <label class="form-check-label" for="face-pull">Face pull</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">9</p>
+                                        <input class="form-check-input" type="checkbox" id="remo-menton">
+                                        <label class="form-check-label" for="remo-menton">Remo al mentón con
+                                            barra</label>
+                                    </div>
+                                </div>
+
+                                <div class="grid-container w-50">
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">1</p>
+                                        <img class="imagen_ejercicio" src="hombros/presshombro.avif" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">2</p>
+                                        <img class="imagen_ejercicio" src="hombros/elevacioneslaterales.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">3</p>
+                                        <img class="imagen_ejercicio" src="hombros/elevacionesfrontales.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">4</p>
+                                        <img class="imagen_ejercicio" src="hombros/encogimietno de hombros.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">5</p>
+                                        <img class="imagen_ejercicio" src="hombros/presshombro.avif" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">6</p>
+                                        <img class="imagen_ejercicio" src="hombros/elevacionposteriores.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">7</p>
+                                        <img class="imagen_ejercicio" src="hombros/pressarnold.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">8</p>
+                                        <img class="imagen_ejercicio" src="hombros/facepull.jpg" alt="">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">9</p>
+                                        <img class="imagen_ejercicio" src="hombros/remoalmenton.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <img src="icons/brazos.png" alt="">
+                            <h3 class="mb-0">Brazos</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <!-- Lista de ejercicios con checkboxes -->
+                                <div class="exercise-list w-50">
+                                    <div class="exercise-item">
+                                        <p class="num_input">1</p>
+                                        <input class="form-check-input" type="checkbox" id="curl-barra">
+                                        <label class="form-check-label" for="curl-barra">Curl de bíceps con
+                                            barra</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">2</p>
+                                        <input class="form-check-input" type="checkbox" id="curl-mancuernas">
+                                        <label class="form-check-label" for="curl-mancuernas">Curl de bíceps con
+                                            mancuernas sentado</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">3</p>
+                                        <input class="form-check-input" type="checkbox" id="curl-concentrado">
+                                        <label class="form-check-label" for="curl-concentrado">Curl
+                                            concentrado</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">4</p>
+                                        <input class="form-check-input" type="checkbox" id="fondos-triceps">
+                                        <label class="form-check-label" for="fondos-triceps">Fondos para
+                                            tríceps</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">5</p>
+                                        <input class="form-check-input" type="checkbox" id="extension-polea">
+                                        <label class="form-check-label" for="extension-polea">Extensiones de tríceps
+                                            en
+                                            polea</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">6</p>
+                                        <input class="form-check-input" type="checkbox" id="press-frances">
+                                        <label class="form-check-label" for="press-frances">Extención de tríceps con
+                                            barra</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">7</p>
+                                        <input class="form-check-input" type="checkbox" id="curl-martillo">
+                                        <label class="form-check-label" for="curl-martillo">Curl martillo</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">8</p>
+                                        <input class="form-check-input" type="checkbox" id="patada-triceps">
+                                        <label class="form-check-label" for="patada-triceps">Patada de tríceps con
+                                            mancuernas</label>
+                                    </div>
+
+                                    <div class="exercise-item">
+                                        <p class="num_input">9</p>
+                                        <input class="form-check-input" type="checkbox" id="press-cerrado">
+                                        <label class="form-check-label" for="press-cerrado">Curl predicador</label>
+                                    </div>
+                                </div>
+
+                                <!-- Galería de imágenes -->
+                                <div class="grid-container w-50">
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">1</p>
+                                        <img class="imagen_ejercicio" src="Brazos/curldbarra.jpg"
+                                            alt="Curl de bíceps con barra">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">2</p>
+                                        <img class="imagen_ejercicio" src="Brazos/culdsentado.jpg"
+                                            alt="Curl de bíceps con mancuernas sentado">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">3</p>
+                                        <img class="imagen_ejercicio" src="Brazos/concentrado.jpg"
+                                            alt="Curl concentrado">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">4</p>
+                                        <img class="imagen_ejercicio" src="Brazos/fondosbancos.jpg"
+                                            alt="Fondos para tríceps">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">5</p>
+                                        <img class="imagen_ejercicio" src="Brazos/extenciones en polea.jpg"
+                                            alt="Extensiones de tríceps en polea">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">6</p>
+                                        <img class="imagen_ejercicio" src="Brazos/tricep-extension-800.jpg"
+                                            alt="Press francés con barra">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">7</p>
+                                        <img class="imagen_ejercicio" src="Brazos/curld martillo.jpeg"
+                                            alt="Curl martillo">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">8</p>
+                                        <img class="imagen_ejercicio" src="Brazos/patada de triceps.jpg"
+                                            alt="Patada de tríceps con mancuernas">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">9</p>
+                                        <img class="imagen_ejercicio" src="Brazos/predicador.avif"
+                                            alt="Curl inverso con barra">
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+
+                        <div class="card-header">
+                            <img src="icons/abdomen.png" alt="">
+                            <h3 class="mb-0">Abdomen</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row d-flex">
+                                <!-- Lista de Ejercicios de Abdomen -->
+                                <div class="exercise-list w-50">
+                                    <div class="exercise-item">
+                                        <p class="num_input">1</p>
+                                        <input class="form-check-input" type="checkbox" id="abdominales-clasicos">
+                                        <label class="form-check-label" for="abdominales-clasicos">Abdominales
+                                            clásicos</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">2</p>
+                                        <input class="form-check-input" type="checkbox" id="planchas">
+                                        <label class="form-check-label" for="planchas">Elevaciones de piernas
+                                            colgado</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">3</p>
+                                        <input class="form-check-input" type="checkbox" id="crunch-inferior">
+                                        <label class="form-check-label" for="crunch-inferior">Twist Ruso</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">4</p>
+                                        <input class="form-check-input" type="checkbox" id="bicicleta-abdominal">
+                                        <label class="form-check-label" for="bicicleta-abdominal">Bicicleta
+                                            abdominal</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">5</p>
+                                        <input class="form-check-input" type="checkbox" id="elevacion-piernas">
+                                        <label class="form-check-label" for="elevacion-piernas">Elevación de
+                                            piernas</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">6</p>
+                                        <input class="form-check-input" type="checkbox" id="abdominales-oblicuos">
+                                        <label class="form-check-label" for="abdominales-oblicuos">Despliegue de
+                                            rueda
+                                            abdominal</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">7</p>
+                                        <input class="form-check-input" type="checkbox" id="plancha-lateral">
+                                        <label class="form-check-label" for="plancha-lateral">Patadas de
+                                            aleteo</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">8</p>
+                                        <input class="form-check-input" type="checkbox" id="mountain-climbers">
+                                        <label class="form-check-label" for="mountain-climbers">Escalada
+                                            climbers</label>
+                                    </div>
+                                    <div class="exercise-item">
+                                        <p class="num_input">9</p>
+                                        <input class="form-check-input" type="checkbox" id="crunch-mariposa">
+                                        <label class="form-check-label" for="crunch-mariposa">Tijeras de
+                                            piernas</label>
+                                    </div>
+                                </div>
+
+                                <!-- Imágenes de Ejercicios -->
+                                <div class="grid-container w-50">
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">1</p>
+                                        <img class="imagen_ejercicio" src="abdomen/abdominales.jpeg"
+                                            alt="Abdominales clásicos">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">2</p>
+
+                                        <img class="imagen_ejercicio" src="abdomen/elevaciones de pierna colgado.avif"
+                                            alt="Planchas">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">3</p>
+                                        <img class="imagen_ejercicio" src="abdomen/twst ruso.avif"
+                                            alt="Crunch inferior">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">4</p>
+                                        <img class="imagen_ejercicio" src="abdomen/bicycle-crunch-400.avif"
+                                            alt="Bicicleta abdominal">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">5</p>
+                                        <img class="imagen_ejercicio" src="abdomen/lying-leg-raise-400.avif"
+                                            alt="Elevación de piernas">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">6</p>
+                                        <img class="imagen_ejercicio" src="abdomen/rueda.avif"
+                                            alt="Abdominales oblicuos">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">7</p>
+                                        <img class="imagen_ejercicio" src="abdomen/patadas.avif" alt="Plancha lateral">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">8</p>
+                                        <img class="imagen_ejercicio" src="abdomen/escalada.avif"
+                                            alt="Mountain climbers">
+                                    </div>
+                                    <div class="card">
+                                        <p class="campo_peso">kg</p>
+                                        <p class="num_ejercicio">9</p>
+                                        <img class="imagen_ejercicio" src="abdomen/tijeras.avif" alt="Crunch mariposa">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Input para Repeticiones y Series -->
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body>
+
+
+
+
+</html>

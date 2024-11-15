@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutina de Entrenamiento Minimalista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&display=swap');
+
+        body {
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-style: normal;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #161616;
+            color: #e0e0e0;
+
+        }
+
+        main {
+
+            position: relative;
+            background-color: #2a2a2a69;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            height: 1050px;
+        }
+
+        .fondo {
+            position: absolute;
+            filter: blur(2);
+            z-index: 0;
+        }
+
+        .content {
+            margin: 20px 30px;
+
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+
+            background-color: #000000d2;
+            border: none;
+            margin-bottom: 15px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            background-color: #ff6600;
+            color: #ffffff;
+            border-bottom: none;
+        }
+
+        .card-header img {
+            width: 35px;
+            height: 35px;
+            margin: 0 12px;
+        }
+
+        .exercise-list {
+            display: flex;
+            flex-direction: column;
+            align-items: first baseline;
+            justify-content: space-evenly;
+        }
+
+        .exercise-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-body {
+            color: #cccccc;
+
+        }
+
+        .num_input {
+            padding: 0;
+            margin: 0 4px;
+            border-radius: 50%;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            z-index: 2;
+            background: #ff5500;
+
+        }
+
+        .form-check-input {
+            margin: 0 4px 0 0;
+            background-color: #4a4a4a;
+            border-color: #5a5a5a;
+        }
+
+        .form-check-input:checked {
+            background-color: #606060;
+            border-color: #707070;
+        }
+
+        .form-control {
+            text-align: center;
+            background-color: #3a3a3a;
+            border-color: #4a4a4a;
+            color: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: #888888;
+        }
+
+        .dia {
+            width: 140px;
+            height: 170px;
+            background-color: #e6e6e654;
+            border: 1px solid #404040;
+            border-radius: 4px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .dia h3 {
+            background-color: #404040;
+            color: #ffffff;
+            text-align: center;
+            padding: 5px;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .exercise-icon {
+            display: flex;
+        }
+
+        .informacion_persona {
+            background-color: #333333;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .informacion_persona .borde_nombre {
+            min-width: 100px;
+            width: 100%;
+            color: rgb(255, 72, 0);
+            border-bottom: 3px solid rgb(255, 72, 0);
+            margin-bottom: 12px;
+        }
+
+        .grid-container {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0px;
+            padding: 0;
+        }
+
+        .grid-container .card {
+
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            border: 3px solid #f56f08;
+            overflow: hidden;
+            width: 85px;
+            border-radius: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .num_ejercicio {
+            top: 0;
+            right: 0;
+            border-radius: 50%;
+            text-align: center;
+            width: 20px;
+            height: 20px;
+            z-index: 2;
+            background: #ff5500;
+            position: absolute;
+            box-shadow: 1px 1px 1px #525252;
+        }
+
+        .imagen_ejercicio {
+            width: 82px;
+            height: 82px;
+            /* Corregido */
+            margin: 0;
+            padding: 0;
+            border-radius: 10px;
+            filter: opacity(0.9);
+
+            /* Aplica escala de grises completa y baja opacidad */
+        }
+
+        .campo_peso {
+            padding: 0;
+            margin: 0;
+            background: #ffffff88;
+            position: absolute;
+            width: 85px;
+            z-index: 2;
+            color: #252525;
+            bottom: 0;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .footer {
+            z-index: 1;
+            background-color: #2a2a2a85;
+            color: #e0e0e0;
+            padding: 10px 0;
+
+        }
+
+        .footer h5 {
+            color: #ff6600;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .footer p,
+        .footer a {
+            color: #cccccc;
+            text-decoration: none;
+        }
+
+
+        .content_footer {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .footer a:hover {
+            color: #ff6600;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a {
+            color: #cccccc;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600;
+        }
+
+        .logo {
+            max-width: 150px;
+
+        }
+
+        .promo {
+            background-color: #333333b3;
+            border-left: 4px solid #ff6600;
+            padding: 15px;
+
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    .container_ejercicios {
+        z-index: 10;
+
+    }
+</style>
+
+<body>
+    <main class="d-inline-flex position-relative m-0 p-3">
+        <section class="info d-flex justify-content-center align-items-center  w-25 m-3">
+
+            <div class="d-flex justify-content-center align-items-center flex-column content_footer">
+
+                <div class=" text-center p-3">
+                    <div class="promo">
+                        <h5>Elite Gym</h5>
+                        <p>Un espacio donde la disciplina se transforma en resultados. Únete a nuestra comunidad y
+                            alcanza tu máximo potencial con entrenamientos diseñados para desafiarte. ¡Aquí, cada
+                            día es una oportunidad para superarte!</p>
+                    </div>
+                </div>
+
+                <div class=" text-center p-3">
+                    <h5>Ubicación</h5>
+                    <p>Calle Principal #123<br>Ubaté, Cundinamarca</p>
+                    <p>Lunes a Viernes: 6:00 AM - 9:00 PM<br>Sábados: 8:00 AM - 4:00 PM</p>
+                </div>
+
+                <div class=" text-center p-3">
+                    <h5>Síguenos</h5>
+                    <div class="social-icons d-flex flex-column text-center">
+                        <p class="p-0 m-0">Encuéntranos en redes sociales</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <p class="p-0 m-0">como:</p>
+                        <h3 class="p-0 m-0">Elite GYM Ubaté</h3>
+                        <p class="p-0 m-0">¡Te esperamos!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ejercicios w-50 m-3  position-relative d-flex justify-content-center align-items-center ">
+            <img class="fondo img-fluid" src="Imagen de WhatsApp 2024-10-09 a las 11.46.15_c5fb4788.jpg" alt=""
+                style="width: 100%; border-radius: 12px; opacity: 0.5;">
+            <article
+                class=" h-100 flex-column w-100 d-flex justify-content-center align-items-center container_ejercicios">
+
+                <div class="card shadow-lg mb-4 rounded ">
+                    <div class="card-header d-flex align-items-center  text-white">
+                        <img src="icons/piernas.png" alt="Pecho" class="me-2" style="width: 24px;">
+                        <h3 class="mb-0">Ejercicipos de pierna</h3>
+                    </div>
+                    <div class="card-body">
+                        <d class="row">
+                            <h5 class=" col  mb-3">Ejercicios</h5>
+                            <h5 class="col  mb-3">Detalles</h5>
+                        </d>
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">1</p>
+                                <input class="form-check-input me-2" type="checkbox" id="sentadilla-tradicional">
+                                <label class="form-check-label" for="sentadilla-tradicional">Sentadilla
+                                    tradicional</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series1" class="me-2">Series:</label>
+                                <input type="number" id="series1" class="form-control me-3" style="width: 60px;">
+                                <label for="peso1" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso1" class="form-control me-3" style="width: 80px;">
+                                <label for="reps1" class="me-2">Reps:</label>
+                                <input type="number" id="reps1" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">2</p>
+                                <input class="form-check-input me-2" type="checkbox" id="sentadilla-smith">
+                                <label class="form-check-label" for="sentadilla-smith">Sentadilla smith</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series2" class="me-2">Series:</label>
+                                <input type="number" id="series2" class="form-control me-3" style="width: 60px;">
+                                <label for="peso2" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso2" class="form-control me-3" style="width: 80px;">
+                                <label for="reps2" class="me-2">Reps:</label>
+                                <input type="number" id="reps2" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">3</p>
+                                <input class="form-check-input me-2" type="checkbox" id="sentadilla-sumo">
+                                <label class="form-check-label" for="sentadilla-sumo">Sentadilla sumo</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series3" class="me-2">Series:</label>
+                                <input type="number" id="series3" class="form-control me-3" style="width: 60px;">
+                                <label for="peso3" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso3" class="form-control me-3" style="width: 80px;">
+                                <label for="reps3" class="me-2">Reps:</label>
+                                <input type="number" id="reps3" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">4</p>
+                                <input class="form-check-input me-2" type="checkbox" id="bulgara-libre">
+                                <label class="form-check-label" for="bulgara-libre">Búlgara libre</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series4" class="me-2">Series:</label>
+                                <input type="number" id="series4" class="form-control me-3" style="width: 60px;">
+                                <label for="peso4" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso4" class="form-control me-3" style="width: 80px;">
+                                <label for="reps4" class="me-2">Reps:</label>
+                                <input type="number" id="reps4" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">5</p>
+                                <input class="form-check-input me-2" type="checkbox" id="bulgara-smith">
+                                <label class="form-check-label" for="bulgara-smith">Búlgara en smith</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series5" class="me-2">Series:</label>
+                                <input type="number" id="series5" class="form-control me-3" style="width: 60px;">
+                                <label for="peso5" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso5" class="form-control me-3" style="width: 80px;">
+                                <label for="reps5" class="me-2">Reps:</label>
+                                <input type="number" id="reps5" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">6</p>
+                                <input class="form-check-input me-2" type="checkbox" id="zancada-libre">
+                                <label class="form-check-label" for="zancada-libre">Zancada libre</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series6" class="me-2">Series:</label>
+                                <input type="number" id="series6" class="form-control me-3" style="width: 60px;">
+                                <label for="peso6" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso6" class="form-control me-3" style="width: 80px;">
+                                <label for="reps6" class="me-2">Reps:</label>
+                                <input type="number" id="reps6" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">7</p>
+                                <input class="form-check-input me-2" type="checkbox" id="zancada-smith">
+                                <label class="form-check-label" for="zancada-smith">Zancada smith</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series7" class="me-2">Series:</label>
+                                <input type="number" id="series7" class="form-control me-3" style="width: 60px;">
+                                <label for="peso7" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso7" class="form-control me-3" style="width: 80px;">
+                                <label for="reps7" class="me-2">Reps:</label>
+                                <input type="number" id="reps7" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">8</p>
+                                <input class="form-check-input me-2" type="checkbox" id="prensa-horizontal">
+                                <label class="form-check-label" for="prensa-horizontal">Prensa horizontal</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series8" class="me-2">Series:</label>
+                                <input type="number" id="series8" class="form-control me-3" style="width: 60px;">
+                                <label for="peso8" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso8" class="form-control me-3" style="width: 80px;">
+                                <label for="reps8" class="me-2">Reps:</label>
+                                <input type="number" id="reps8" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">9</p>
+                                <input class="form-check-input me-2" type="checkbox" id="prensa-inclinada">
+                                <label class="form-check-label" for="prensa-inclinada">Prensa inclinada</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series9" class="me-2">Series:</label>
+                                <input type="number" id="series9" class="form-control me-3" style="width: 60px;">
+                                <label for="peso9" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso9" class="form-control me-3" style="width: 80px;">
+                                <label for="reps9" class="me-2">Reps:</label>
+                                <input type="number" id="reps9" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">10</p>
+                                <input class="form-check-input me-2" type="checkbox" id="squat-prensa">
+                                <label class="form-check-label" for="squat-prensa">Squat en Prensa jaka de 45</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series10" class="me-2">Series:</label>
+                                <input type="number" id="series10" class="form-control me-3" style="width: 60px;">
+                                <label for="peso10" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso10" class="form-control me-3" style="width: 80px;">
+                                <label for="reps10" class="me-2">Reps:</label>
+                                <input type="number" id="reps10" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">11</p>
+                                <input class="form-check-input me-2" type="checkbox" id="leg-curl-uni-pie">
+                                <label class="form-check-label" for="leg-curl-uni-pie">Leg curl uni de pie</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series11" class="me-2">Series:</label>
+                                <input type="number" id="series11" class="form-control me-3" style="width: 60px;">
+                                <label for="peso11" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso11" class="form-control me-3" style="width: 80px;">
+                                <label for="reps11" class="me-2">Reps:</label>
+                                <input type="number" id="reps11" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">12</p>
+                                <input class="form-check-input me-2" type="checkbox" id="izquiotibial-sentado">
+                                <label class="form-check-label" for="izquiotibial-sentado">Izquiotibial sentado</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series12" class="me-2">Series:</label>
+                                <input type="number" id="series12" class="form-control me-3" style="width: 60px;">
+                                <label for="peso12" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso12" class="form-control me-3" style="width: 80px;">
+                                <label for="reps12" class="me-2">Reps:</label>
+                                <input type="number" id="reps12" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">13</p>
+                                <input class="form-check-input me-2" type="checkbox" id="leg-curl">
+                                <label class="form-check-label" for="leg-curl">Leg curl</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series13" class="me-2">Series:</label>
+                                <input type="number" id="series13" class="form-control me-3" style="width: 60px;">
+                                <label for="peso13" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso13" class="form-control me-3" style="width: 80px;">
+                                <label for="reps13" class="me-2">Reps:</label>
+                                <input type="number" id="reps13" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">14</p>
+                                <input class="form-check-input me-2" type="checkbox" id="peso-muerto">
+                                <label class="form-check-label" for="peso-muerto">Peso muerto</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series14" class="me-2">Series:</label>
+                                <input type="number" id="series14" class="form-control me-3" style="width: 60px;">
+                                <label for="peso14" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso14" class="form-control me-3" style="width: 80px;">
+                                <label for="reps14" class="me-2">Reps:</label>
+                                <input type="number" id="reps14" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">15</p>
+                                <input class="form-check-input me-2" type="checkbox" id="peso-muerto-uni">
+                                <label class="form-check-label" for="peso-muerto-uni">Peso muerto unilateral</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series15" class="me-2">Series:</label>
+                                <input type="number" id="series15" class="form-control me-3" style="width: 60px;">
+                                <label for="peso15" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso15" class="form-control me-3" style="width: 80px;">
+                                <label for="reps15" class="me-2">Reps:</label>
+                                <input type="number" id="reps15" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">16</p>
+                                <input class="form-check-input me-2" type="checkbox" id="extension-rodilla">
+                                <label class="form-check-label" for="extension-rodilla">Extensión de rodilla</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series16" class="me-2">Series:</label>
+                                <input type="number" id="series16" class="form-control me-3" style="width: 60px;">
+                                <label for="peso16" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso16" class="form-control me-3" style="width: 80px;">
+                                <label for="reps16" class="me-2">Reps:</label>
+                                <input type="number" id="reps16" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">17</p>
+                                <input class="form-check-input me-2" type="checkbox" id="extension-rodilla2">
+                                <label class="form-check-label" for="extension-rodilla2">Extensión de rodilla</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series17" class="me-2">Series:</label>
+                                <input type="number" id="series17" class="form-control me-3" style="width: 60px;">
+                                <label for="peso17" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso17" class="form-control me-3" style="width: 80px;">
+                                <label for="reps17" class="me-2">Reps:</label>
+                                <input type="number" id="reps17" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">18</p>
+                                <input class="form-check-input me-2" type="checkbox" id="hiperextension-gluteo">
+                                <label class="form-check-label" for="hiperextension-gluteo">Hiperextensión de glúteo en
+                                    banco</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series18" class="me-2">Series:</label>
+                                <input type="number" id="series18" class="form-control me-3" style="width: 60px;">
+                                <label for="peso18" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso18" class="form-control me-3" style="width: 80px;">
+                                <label for="reps18" class="me-2">Reps:</label>
+                                <input type="number" id="reps18" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">19</p>
+                                <input class="form-check-input me-2" type="checkbox" id="empuje-cadera-maquina">
+                                <label class="form-check-label" for="empuje-cadera-maquina">Empuje de cadera en
+                                    maquina</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series19" class="me-2">Series:</label>
+                                <input type="number" id="series19" class="form-control me-3" style="width: 60px;">
+                                <label for="peso19" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso19" class="form-control me-3" style="width: 80px;">
+                                <label for="reps19" class="me-2">Reps:</label>
+                                <input type="number" id="reps19" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">20</p>
+                                <input class="form-check-input me-2" type="checkbox" id="empuje-cadera-libre">
+                                <label class="form-check-label" for="empuje-cadera-libre">Empuje de cadera libre</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series20" class="me-2">Series:</label>
+                                <input type="number" id="series20" class="form-control me-3" style="width: 60px;">
+                                <label for="peso20" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso20" class="form-control me-3" style="width: 80px;">
+                                <label for="reps20" class="me-2">Reps:</label>
+                                <input type="number" id="reps20" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">21</p>
+                                <input class="form-check-input me-2" type="checkbox" id="abduccion-gluteo-polea">
+                                <label class="form-check-label" for="abduccion-gluteo-polea">Abducción de glúteo en
+                                    polea</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series21" class="me-2">Series:</label>
+                                <input type="number" id="series21" class="form-control me-3" style="width: 60px;">
+                                <label for="peso21" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso21" class="form-control me-3" style="width: 80px;">
+                                <label for="reps21" class="me-2">Reps:</label>
+                                <input type="number" id="reps21" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">22</p>
+                                <input class="form-check-input me-2" type="checkbox" id="aductores-banco">
+                                <label class="form-check-label" for="aductores-banco">Aductores en banco</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series22" class="me-2">Series:</label>
+                                <input type="number" id="series22" class="form-control me-3" style="width: 60px;">
+                                <label for="peso22" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso22" class="form-control me-3" style="width: 80px;">
+                                <label for="reps22" class="me-2">Reps:</label>
+                                <input type="number" id="reps22" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">23</p>
+                                <input class="form-check-input me-2" type="checkbox" id="sentadilla-sissy">
+                                <label class="form-check-label" for="sentadilla-sissy">Sentadilla sissy</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series23" class="me-2">Series:</label>
+                                <input type="number" id="series23" class="form-control me-3" style="width: 60px;">
+                                <label for="peso23" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso23" class="form-control me-3" style="width: 80px;">
+                                <label for="reps23" class="me-2">Reps:</label>
+                                <input type="number" id="reps23" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">24</p>
+                                <input class="form-check-input me-2" type="checkbox" id="pres-pantorrilla-banco">
+                                <label class="form-check-label" for="pres-pantorrilla-banco">Pres pantorrilla en
+                                    banco</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series24" class="me-2">Series:</label>
+                                <input type="number" id="series24" class="form-control me-3" style="width: 60px;">
+                                <label for="peso24" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso24" class="form-control me-3" style="width: 80px;">
+                                <label for="reps24" class="me-2">Reps:</label>
+                                <input type="number" id="reps24" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+
+                        <div class="row lista_ejercicios">
+                            <div class="col d-flex align-items-center mb-2">
+                                <p class="num_input me-2">25</p>
+                                <input class="form-check-input me-2" type="checkbox" id="pantorrilla-sentadilla">
+                                <label class="form-check-label" for="pantorrilla-sentadilla">Pantorrilla en
+                                    sentadilla</label>
+                            </div>
+                            <div class="col d-flex justify-content-center align-items-center mb-2">
+                                <label for="series25" class="me-2">Series:</label>
+                                <input type="number" id="series25" class="form-control me-3" style="width: 60px;">
+                                <label for="peso25" class="me-2">Peso (kg):</label>
+                                <input type="number" id="peso25" class="form-control me-3" style="width: 80px;">
+                                <label for="reps25" class="me-2">Reps:</label>
+                                <input type="number" id="reps25" class="form-control" style="width: 60px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+        </section>
+        <section class="portada w-25 m-3">
+
+
+            <h3 class="p-0 m-0">
+                Bienvenido a
+            </h3>
+            <h1 class="p-0 mt-0">
+                ELITE GYM
+            </h1>
+
+            <div class="info-item">
+                <strong>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                    Nombre:
+                </strong>
+                <input type="text" class="w-100">
+            </div>
+            <div class="info-container">
+                <div class="info-item">
+                    <strong>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z" />
+                        </svg>
+                        Edad:
+                    </strong>
+                    <input type="text">
+                </div>
+                <div class="info-item">
+                    <strong>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z" />
+                        </svg>
+                        Peso:
+                    </strong>
+                    <input type="text">
+                </div>
+                <div class="info-item">
+                    <strong>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1z" />
+                        </svg>
+                        % de grasa:
+                    </strong>
+                    <input type="text">
+                </div>
+                <div class="info-item">
+                    <strong>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                        Género:
+                    </strong>
+                    <input type="text">
+                </div>
+                <div class="info-item">
+                    <strong>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1z" />
+                        </svg>
+                        IMC:
+                    </strong>
+                    <input type="text">
+                </div>
+                <div class="info-item">
+                    <strong>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z" />
+                        </svg>
+                        Talla:
+                    </strong>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="p-0 m-0">
+                <div class="p-2"
+                    style="text-align: center; padding: 0px; background-color: #424242; border-radius: 8px;">
+
+                    <h2 class="p-0 m-0" style="color: #ff6600;">¡Conoce tu rutina de entrenamiento!</h2>
+                    <p class="p-0 m-0" style="color: #ffffff;">Descubre ejercicios personalizados y consejos para
+                        mejorar
+                        tu rendimiento y
+                        alcanzar tus metas. ¡Empieza hoy!</p>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body>
+
+
+
+
+</html>

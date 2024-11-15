@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutina de Entrenamiento Minimalista</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .vertical-letters {
+            font-size: 60px;
+            font-weight: 600;
+            text-align: center;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+        }
+
+        .campos_persona {
+            overflow: hidden;
+            background: #EEEEEE;
+        }
+
+        .lineas {
+            top: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .linea {
+            position: relative;
+            left: 0;
+            width: 800px;
+            height: 70px;
+            transform: rotate(45deg);
+        }
+
+        .linea:nth-child(1) {
+            background: #EEEEEE;
+        }
+
+        .linea:nth-child(2) {
+            background: #0F1B1B;
+        }
+
+        .linea:nth-child(3) {
+            background: #F76B15;
+        }
+
+        .lineas2 {
+            right: -20px;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            height: 30%;
+            overflow: hidden;
+        }
+
+        .linea2 {
+
+
+            width: 3000px;
+            height: 70px;
+            transform: rotate(-45deg);
+            overflow: hidden;
+        }
+
+        .linea2:nth-child(2) {
+            background: #EEEEEE;
+        }
+
+        .linea2:nth-child(1) {
+            background: #0F1B1B;
+        }
+
+        .linea2:nth-child(3) {
+            height: 100px;
+            background: #F76B15;
+        }
+
+        .info-item input {
+            border: none;
+
+            background: #EEEEEE;
+        }
+
+        .info-item strong {
+            min-width: 80px;
+        }
+
+        .info-item>input {
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="d-inline-flex position-relative m-0 p-0 w-100">
+        <section class="w-25 h-100">
+            <div class="lineas">
+                <div class="linea"></div>
+                <div class="linea"></div>
+                <div class="linea"></div>
+            </div>
+            <div class="lineas2">
+                <div class="linea2"></div>
+                <div class="linea2"></div>
+                <div class="linea2"></div>
+            </div>
+            <article
+                class="p-2 flex-column w-100 d-flex justify-content-center align-items-center container_ejercicios">
+                <div class="ejercicios card shadow-lg mb-4 rounded">
+                    <div class="card-header d-flex align-items-center text-white">
+                        <img src="icons/hombros.png" alt="Pecho" class="me-2" style="width: 24px;">
+                        <h3 class="mb-0">Ejercicios de hombros</h3>
+                    </div>
+                    <div class="card-body p-1 m-0 d-grid grid-ejercicios">
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Elevaciones Frontales</p>
+                                <img class="img-ejercicio" src="hombros/elevacionesfrontales.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Elevaciones laterales</p>
+                                <img class="img-ejercicio" src="hombros/elevacioneslaterales.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Elevaciones Posteriores</p>
+                                <img class="img-ejercicio" src="hombros/elevacionposteriores.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Encogimiento de Hombros</p>
+                                <img class="img-ejercicio" src="hombros/encogimietno de hombros.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Face PUll</p>
+                                <img class="img-ejercicio" src="hombros/facepull.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press Arnold</p>
+                                <img class="img-ejercicio" src="hombros/pressarnold.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press de Hombro con mancuernas</p>
+                                <img class="img-ejercicio" src="hombros/presshombto.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Remo al mentón</p>
+                                <img class="img-ejercicio" src="hombros/remoalmenton.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Elevaciones laterales a una mano en polea</p>
+                                <img class="img-ejercicio" src="hombros/Elevaciones laterales a una mano en polea.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Rotación externa con mancuerna</p>
+                                <img class="img-ejercicio" src="hombros/Rotación externa con mancuerna.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Elevaciones frontales con barra</p>
+                                <img class="img-ejercicio" src="hombros/Elevaciones frontales con barra.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Tirones en la cara con mancuerna</p>
+                                <img class="img-ejercicio" src="hombros/Tirones en la cara con mancuerna.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Flexiones pica</p>
+                                <img class="img-ejercicio" src="hombros/Flexiones pica.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press tras nuca con barra</p>
+                                <img class="img-ejercicio" src="hombros/Press tras nuca con barra.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Encogimientos tras nuca con barra</p>
+                                <img class="img-ejercicio" src="hombros/Encogimientos tras nuca con barra.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Flexiones invertidas</p>
+                                <img class="img-ejercicio" src="hombros/Flexiones invertidas.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="w-50 h-100 d-flex position-relative">
+            <img class="fondo img-fluid" src="sin_fondo.png" alt=""
+                style="width: 100%; border-radius: 12px; opacity: 0.5;">
+            <article
+                class="p-2 flex-column w-100 d-flex justify-content-center align-items-center container_ejercicios">
+                <div class="ejercicios card shadow-lg mb-4 rounded">
+                    <div class="card-header d-flex align-items-center text-white">
+                        <img src="icons/pecho.png" alt="Pecho" class="me-2" style="width: 24px;">
+                        <h3 class="mb-0">Ejercicios de Pecho</h3>
+                    </div>
+                    <div class="card-body p-1 m-0 d-grid grid-ejercicios">
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press plano</p>
+                                <img class="img-ejercicio" src="Pecho/bench-press-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Aperturas en polea</p>
+                                <img class="img-ejercicio" src="Pecho/cable-fly-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press declinado</p>
+                                <img class="img-ejercicio" src="Pecho/decline-bench-press-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Fondos en paralelas</p>
+                                <img class="img-ejercicio" src="Pecho/dips-800.jpg" alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press declinado con mancuernas</p>
+                                <img class="img-ejercicio" src="Pecho/dumbbell-bench-press-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Aperturas en banco con mancuernas</p>
+                                <img class="img-ejercicio" src="Pecho/dumbbell-fly-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Jalón a pecho con mancuerna</p>
+                                <img class="img-ejercicio" src="Pecho/dumbbell-pullover-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press inclinado con barra</p>
+                                <img class="img-ejercicio" src="Pecho/incline-bench-press-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Aperturas en maquina</p>
+                                <img class="img-ejercicio" src="Pecho/machine-chest-fly-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Flexión declinado</p>
+                                <img class="img-ejercicio" src="Pecho/Flexión declinado.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Flexiones diamante</p>
+                                <img class="img-ejercicio" src="Pecho/Flexiones Diamante.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Flexiones de arco</p>
+                                <img class="img-ejercicio" src="Pecho/Flexiones de arco.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press en banco con agarre invertido</p>
+                                <img class="img-ejercicio" src="Pecho/Press en banco con agarre invertido.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Flexión con agarre cerrado</p>
+                                <img class="img-ejercicio" src="Pecho/Flexión con agarre cerrado.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Flexión inclinado</p>
+                                <img class="img-ejercicio" src="Pecho/flexión inclinado.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Aperturas inclinadas con mancuernas</p>
+                                <img class="img-ejercicio" src="Pecho/Aperturas inclinadas con mancuernas.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article
+                class="p-2 flex-column w-100 d-flex justify-content-center align-items-center container_ejercicios">
+                <div class="ejercicios card shadow-lg mb-4 rounded">
+                    <div class="card-header d-flex align-items-center text-white">
+                        <img src="icons/espalda.png" alt="Pecho" class="me-2" style="width: 24px;">
+                        <h3 class="mb-0">Ejercicios de espalda</h3>
+                    </div>
+                    <div class="card-body p-1 m-0 d-grid grid-ejercicios">
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Pullover con barra</p>
+                                <img class="img-ejercicio" src="Espalda/barbell-pullover-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Remo con Barra</p>
+                                <img class="img-ejercicio" src="Espalda/bent-over-row-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Remo unilateral con polea</p>
+                                <img class="img-ejercicio" src="Espalda/dumbbell-row-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Encogimiendo de hombros para superior</p>
+                                <img class="img-ejercicio" src="Espalda/dumbbell-shrug-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Jalón al pecho</p>
+                                <img class="img-ejercicio" src="Espalda/lat-pulldown-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Aperturas Invertidas</p>
+                                <img class="img-ejercicio" src="Espalda/machine-reverse-fly-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Jalón al dorsal en maquina</p>
+                                <img class="img-ejercicio" src="Espalda/machine-row-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Dominadas</p>
+                                <img class="img-ejercicio" src="Espalda/pull-ups-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Remo Inclinado</p>
+                                <img class="img-ejercicio" src="Espalda/reverse-grip-lat-pulldown-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Remo sentado en polea</p>
+                                <img class="img-ejercicio" src="Espalda/seated-cable-row-400.png"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Jalones frontales con brazos rectos</p>
+                                <img class="img-ejercicio" src="Espalda/jalones frontales con brazos rectos.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Remo Meadows</p>
+                                <img class="img-ejercicio" src="Espalda/Remo Meadows.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Elevaciones Posteriores</p>
+                                <img class="img-ejercicio" src="Espalda/Elevaciones posteriores.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Jalones agarre cerrado</p>
+                                <img class="img-ejercicio" src="Espalda/Jalones agarre cerrado.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Pullover con barra</p>
+                                <img class="img-ejercicio" src="Espalda/Pullover con barra.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Remo con mancuernas en banco</p>
+                                <img class="img-ejercicio" src="Espalda/Remo con mancuernas en banco.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="w-25 h-100">
+            <article
+                class="p-2 flex-column w-100 d-flex justify-content-center align-items-center container_ejercicios">
+                <div class="ejercicios card shadow-lg mb-4 rounded">
+                    <div class="card-header d-flex align-items-center text-white">
+                        <img src="icons/brazos.png" alt="Pecho" class="me-2" style="width: 24px;">
+                        <h3 class="mb-0">Ejercicios de brazo</h3>
+                    </div>
+                    <div class="card-body p-1 m-0 d-grid grid-ejercicios">
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Curl concentrado</p>
+                                <img class="img-ejercicio" src="Brazos/concentrado.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Curl sentado</p>
+                                <img class="img-ejercicio" src="Brazos/culdsentado.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Curl barra</p>
+                                <img class="img-ejercicio" src="Brazos/curldbarra.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Curl martillo</p>
+                                <img class="img-ejercicio" src="Brazos/curld martillo.jpeg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Curl predicador</p>
+                                <img class="img-ejercicio" src="Brazos/predicador.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Contracción de Bíceps con una mano en polea</p>
+                                <img class="img-ejercicio" src="Brazos/contraccion de biceps con una mano.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Curl stricto</p>
+                                <img class="img-ejercicio" src="Brazos/strict-curl-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Curl en polea de pie</p>
+                                <img class="img-ejercicio" src="Brazos/cable-bicep-curl-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Extensión de tríceps con mancuernas</p>
+                                <img class="img-ejercicio" src="Brazos/Extensión de tríceps con mancuernas.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Fondo en banco</p>
+                                <img class="img-ejercicio" src="Brazos/fondosbancos.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Extenciones en polea</p>
+                                <img class="img-ejercicio" src="Brazos/extenciones en polea.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">patada de triceps</p>
+                                <img class="img-ejercicio" src="Brazos/patada de triceps.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Extención de triceps con barra</p>
+                                <img class="img-ejercicio" src="Brazos/tricep-extension-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Jalones en polea con agarre inverso</p>
+                                <img class="img-ejercicio" src="Brazos/Jalones en polea con agarre inverso.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Extensión de tríceps en banca con mancuernas</p>
+                                <img class="img-ejercicio" src="Brazos/Extensión de tríceps en banca con mancuernas.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Press tate</p>
+                                <img class="img-ejercicio" src="Brazos/tate-press-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article> -->
+
+            <!-- <article
+                class="p-2 flex-column w-100 d-flex justify-content-center align-items-center container_ejercicios">
+                <div class="ejercicios card shadow-lg mb-4 rounded">
+                    <div class="card-header d-flex align-items-center text-white">
+                        <img src="icons/abdomen.png" alt="Pecho" class="me-2" style="width: 24px;">
+                        <h3 class="mb-0">Ejercicios de abdomen</h3>
+                    </div>
+                    <div class="card-body p-1 m-0 d-grid grid-ejercicios">
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">abdominales en polea</p>
+                                <img class="img-ejercicio" src="abdomen/abdominales en polea.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Abdominales</p>
+                                <img class="img-ejercicio" src="abdomen/abdominales.jpeg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Abdominales bicicleta</p>
+                                <img class="img-ejercicio" src="abdomen/bicycle-crunch-400.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">elevaciones de pierna colgado</p>
+                                <img class="img-ejercicio" src="abdomen/elevaciones de pierna colgado.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Escalada Horizontal</p>
+                                <img class="img-ejercicio" src="abdomen/escalada.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Elevación de piernas</p>
+                                <img class="img-ejercicio" src="abdomen/lying-leg-raise-400.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Patadas de tijera</p>
+                                <img class="img-ejercicio" src="abdomen/patadas.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Rueda abdominal</p>
+                                <img class="img-ejercicio" src="abdomen/rueda.avif" alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">tijeras</p>
+                                <img class="img-ejercicio" src="abdomen/tijeras.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">twist ruso</p>
+                                <img class="img-ejercicio" src="abdomen/twst ruso.avif"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Pies a la barra</p>
+                                <img class="img-ejercicio" src="abdomen/Pies a la barra.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Abdominal declinado</p>
+                                <img class="img-ejercicio" src="abdomen/Abdominal declinado.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Encogimientos en polea, de pie</p>
+                                <img class="img-ejercicio" src="abdomen/Encogimientos en polea, de pie.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Encogimientos invertidos</p>
+                                <img class="img-ejercicio" src="abdomen/Encogimientos invertidos.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Flexión lateral con mancuerna</p>
+                                <img class="img-ejercicio" src="abdomen/Flexión lateral con mancuerna.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                        <div class="card p-1 cards_ejercicios d-flex justify-content-center align-items-center"
+                            data-exercise-number="1">
+                            <div
+                                class="d-flex flex-column justify-content-center align-content-center align-items-center">
+                                <p class="text-center">Crunch oblicuos en silla</p>
+                                <img class="img-ejercicio" src="abdomen/roman-chair-side-bend-800.jpg"
+                                    alt="Curl Femoral en máquina Smith">
+                            </div>
+                            <div class="d-flex text-center div_input_ejercicios">
+                                <input class="input_ejercicios text-center" placeholder="SR" type="text">
+                                <input class="input_ejercicios text-center" placeholder="REP" type="text">
+                                <input class="input_ejercicios text-center" placeholder="KG" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article> -->
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body>
+
+
+
+
+</html>
